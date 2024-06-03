@@ -11,6 +11,7 @@ import {
 import { saveTasksToServer } from "./src/saveFileToServer";
 
 const App: React.FC = () => {
+  const [user] = useState<string>("John Doe");
   const [tasks, setTasks] = useState<{ id: number; name: string }[]>([
     { id: 1, name: "Sample Task" },
   ]);
@@ -26,7 +27,14 @@ const App: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Task List</Text>
+      <View style={styles.headerBar}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Task List</Text>
+        </View>
+        <View style={[styles.container, styles.flexRight]}>
+          <Text style={styles.title}>User: {user}</Text>
+        </View>
+      </View>
       <ScrollView>
         {tasks.map((task) => (
           <View key={task.id} style={styles.taskContainer}>
@@ -81,6 +89,17 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontSize: 16,
+  },
+  headerBar: {
+    flexDirection: "row",
+  },
+  flex: {
+    flex: 1,
+  },
+  flexRight: {
+    flex: 1,
+    alignItems: "flex-end",
+    marginRight: 20,
   },
 });
 
