@@ -51,9 +51,6 @@ const App: React.FC = () => {
       <TouchableOpacity onPress={addTask} style={styles.button}>
         <Text style={styles.buttonText}>Add Task</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={addTask}>
-        <Text style={styles.buttonText}>Clear</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   );
 };
